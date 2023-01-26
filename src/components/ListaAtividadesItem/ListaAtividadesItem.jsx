@@ -20,7 +20,7 @@ function ListaAtividadeItem({ atividade, index }) {
                         </div>
 
                         <div className="AtividadeListaItem__data">
-                            {`Marcado para ás ${atividade.hora.toFixed(2)} de ${atividade.data}`}
+                            {`Marcado para ás ${atividade.hora} de ${atividade.data}`}
                         </div>
 
                         <p>

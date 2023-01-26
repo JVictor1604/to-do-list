@@ -39,7 +39,7 @@ function AtividadesFormModal({ closeModal }) {
         }
     )
 
-    const createAtividade = async () => {
+    const createatividade = async () => {
     
         const { titulo, descricao, data, hora } = state;
     
@@ -57,11 +57,11 @@ function AtividadesFormModal({ closeModal }) {
 
     return (
         <Modal closeModal={closeModal}>
-            <div className="AdicionaPaletaModal">
+            <div className="AdicionaAtividadeModal">
                 <form autoComplete="off">
                     <h2> Adicionar Atividade </h2>
                     <div>
-                        <label className="AdicionaPaletaModal__text" htmlFor="titulo"> Título: </label>
+                        <label className="AdicionaAtividadeModal__text" htmlFor="titulo"> Título: </label>
                         <input
                             id="titulo"
                             placeholder="Ir no supermercado"
@@ -71,7 +71,7 @@ function AtividadesFormModal({ closeModal }) {
                             required />
                     </div>
                     <div>
-                        <label className="AdicionaPaletaModal__text" htmlFor="descricao"> Descricão: </label>
+                        <label className="AdicionaAtividadeModal__text" htmlFor="descricao"> Descricão: </label>
                         <input
                             id="descricao"
                             placeholder="Ir ao supermecado da esquina comprar feijão"
@@ -80,7 +80,7 @@ function AtividadesFormModal({ closeModal }) {
                             onChange={(e) => handleChange(e, "descricao")} />
                     </div>
                     <div>
-                        <label className="AdicionaPaletaModal__text" htmlFor="data"> Data: </label>
+                        <label className="AdicionaAtividadeModal__text" htmlFor="data"> Data: </label>
                         <input
                             id="data"
                             placeholder="18/07/2023"
@@ -90,7 +90,7 @@ function AtividadesFormModal({ closeModal }) {
                             required />
                     </div>
                     <div>
-                        <label className="AdicionaPaletaModal__text" htmlFor="hora"> Hora: </label>
+                        <label className="AdicionaAtividadeModal__text" htmlFor="hora"> Hora: </label>
                         <input
                             id="hora"
                             placeholder="18:50"
@@ -100,10 +100,10 @@ function AtividadesFormModal({ closeModal }) {
                             required />
                     </div>
 
-                    <button className="AdicionaPaletaModal__enviar"
+                    <button className="AdicionaAtividadeModal__enviar"
                         type="submit"
                         disabled={canDisable}
-                        onClick={createAtividade}>
+                        onClick={createatividade}>
                         Enviar
                     </button>
                 </form>
