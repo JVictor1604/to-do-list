@@ -1,0 +1,74 @@
+.Header {
+    max-width: 1110px;
+    margin: 0 auto 25px auto;
+    position: relative;
+  }
+  
+  .row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 20px 0 35px 0;
+  }
+  
+  .Logo {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 250px;
+    height: 45px;
+  }
+  
+  .Logo__titulo {
+    position: absolute;
+    left: 23px;
+    font-family: "Exo";
+    font-weight: 700;
+    font-size: 2.5em;
+  }
+  
+  .Logo__icone {
+    position: absolute;
+    left: -75px;
+    top: -15px;
+  }
+  
+  @media (max-width: 1220px) {
+    .Header {
+      max-width: 720px;
+    }
+  }
+  
+  @media (max-width: 840px) {
+    .Header {
+      max-width: 320px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .Header {
+      max-width: 250px;
+    }
+  
+    .row {
+      column-gap: 20px;
+    }
+  
+    .Logo__titulo {
+      font-size: 1.5em;
+    }
+  }
+
+  .Opcoes {
+    display: flex;
+  }
+  
+  .Atividade {
+    background: none;
+    border: none;
+  }
+  
+  .Atividade__icone {
+    cursor: pointer;
+  }
