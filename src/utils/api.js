@@ -21,7 +21,7 @@ export const api = {
     },
 
     getAtividadeById: async (id) => {
-      const response = await fetch(`${baseUrl}}/atividades/${id}`);
+      const response = await fetch(`${baseUrl}/atividades/${id}`);
       const atividade = response.json();
       return atividade;
     }

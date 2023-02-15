@@ -2,13 +2,15 @@ import "./ListaAtividadesItem.css"
 
 
 
-function ListaAtividadeItem({ atividade, index }) {
+function ListaAtividadeItem({ atividade, index, clickItem }) {
 
 
 
     return (<div className="row">
 
-        <div className="AtividadeListaItem" key={`AtividadeListaItem-${index}`}>
+        <div className="AtividadeListaItem" 
+            key={`AtividadeListaItem-${index}`}
+            onClick={() => clickItem(atividade.id)}>
 
 
                         <div className="AtividadeListaItem__titulo">

@@ -1,30 +1,31 @@
 import './Home.css';
 import { useEffect, useState } from 'react';
-import { api } from 'utils/api';
 
 
-import ListaAtividades from 'components/ListaAtividades/ListaAtividades'
+
 import Navbar from 'components/Navbar/Navbar';
+import AtividadeLista from 'components/ListaAtividades/ListaAtividades';
 import AtividadesFormModal from 'components/AtividadesFormModal/AtividadesFormModal';
-import AtividadesByIdModal from 'components/AtividadesByIdModal/AtividadesByIdModal';
+
 
 
 function Home() {
 
   const [canShowAdicionaAtividadeModal, setCanShowAdicionaAtividadeModal] = useState(false);
 
-  const [canShowAtividadeByIdModal, setCanShowAtividadeByIdModal] = useState(false);
-
   const [atividadeParaAdicionar, setAtividadeParaAdicionar] = useState();
 
   const [atividades, setAtividades] = useState([]);
 
-  const getAtividadeById = async (atividadeId) => {
-    const response = await api.getAtividadeById(atividadeId);
-    setAtividades(response);
-  }
+  const adicionaAtividadeNaLista = (atividade) => {
+    const lista = [...atividades, atividade];
+    setAtividades(lista);
+  };
 
-  useEffect(() => {getAtividadeById();}, [])
+  useEffect(() => {
+    if (atividadeParaAdicionar) adicionaAtividadeNaLista(atividadeParaAdicionar);
+  }, [atividadeParaAdicionar]);
+
 
   return (
     <div className="Home">
@@ -34,16 +35,12 @@ function Home() {
       </div>
 
       <div className="Home__container">
-        <ListaAtividades atividadeCriada={atividadeParaAdicionar}/>
 
+        <AtividadeLista  
+        
+        />
         {
           canShowAdicionaAtividadeModal && (<AtividadesFormModal closeModal={() => setCanShowAdicionaAtividadeModal(false)} onCreateAtividade={(atividade) => setAtividadeParaAdicionar(atividade)} />)
-        }
-
-        {
-          canShowAtividadeByIdModal && (<AtividadesByIdModal closeModal={() => setCanShowAtividadeByIdModal(false)} 
-          atividades={atividades}
-           />)
         }
 
       </div>

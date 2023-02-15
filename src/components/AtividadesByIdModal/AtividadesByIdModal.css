@@ -1,77 +1,64 @@
-.AtividadeDetalhesModal {
-    font-family: "Exo";
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    padding: 10px 0px 10px 10px;
-    max-height: 350px;
-    box-sizing: border-box;
-    width: 315px;
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-  }
+.AdicionaAtividadeModal {
+  font-family: "Exo";
+  border-radius: 10px;
+  max-height: 350px;
+  box-sizing: border-box;
+  width: 325px;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-15px);
+  margin-right: -45px;
+  flex-wrap: nowrap;
+}
 
-  .AdicionaAtividadeModal {
-    font-family: "Exo";
-    border-radius: 10px;
-    max-height: 350px;
-    box-sizing: border-box;
-    width: 325px;
-    display: flex;
-    position: relative;
-    transform: translateY(-15px);
-    margin-right: -45px;
-  }
-  
-  .AdicionaAtividadeModal form div {
-    display: flex;
-    margin: 15px 0;
-  }
-  
-  .AdicionaAtividadeModal form {
-    width: 100%;
-  }
-  
-  .AdicionaAtividadeModal div input {
-    border: none;
-    background: rgba(255, 255, 255, 0.3);
-    width: 100%;
-    margin-left: 15px;
-    border-radius: 5px;
-    height: 20px;
-    padding: 2px 10px;
-  }
-  
-  .AdicionaAtividadeModal__text {
-    font-size: 1em;
-    line-height: 100%;
-  }
-  
-  .AdicionaAtividadeModal__foto-label {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    color: darkviolet;
-    cursor: pointer;
-    padding: 5px 10px;
-  }
-  
-  .AdicionaAtividadeModal__foto {
-    display: none;
-  }
-  
-  .AdicionaAtividadeModal__enviar {
-    background-color: blue;
-    cursor: pointer;
-    color: white;
-    width: 100%;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-  }
-  
-  .AdicionaAtividadeModal__enviar:disabled {
-    background-color: gray;
-  }
+.AtividadeListaItem__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.AdicionaAtividadeModal__text {
+  font-size: 1em;
+  line-height: 100%;
+}
+
+.AdicionaAtividadeModal__foto-label {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  color: darkviolet;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.AdicionaAtividadeModal__foto {
+  display: none;
+}
+
+.AdicionaAtividadeModal__enviar {
+  background-color: blue;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+}
+
+.AdicionaAtividadeModal__enviar:disabled {
+  background-color: gray;
+}
+
+.AtividadeListaItem__titulo {
+  width: 300px;
+}
+
+.AtividadeListaItem__data {
+  width: 150px;
+}
+
+.AtividadeListaItem__descricao {
+  text-align: justify;
+}
