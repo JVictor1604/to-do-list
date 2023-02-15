@@ -3,7 +3,7 @@ import "./AtividadesFormModal.css"
 import Modal from "components/Modal/Modal";
 import { api } from "utils/api";
 
-function AtividadesFormModal({ closeModal }) {
+function AtividadesFormModal({ closeModal, onCreateAtividade }) {
 
     const form = {
         titulo: "",
@@ -52,7 +52,11 @@ function AtividadesFormModal({ closeModal }) {
         }
     
         const response = await api.createAtividade(atividade);
+
+        onCreateAtividade(response);
+        
         closeModal();
+
     }
 
     return (

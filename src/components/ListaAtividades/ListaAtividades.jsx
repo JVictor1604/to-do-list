@@ -5,14 +5,24 @@ import { api } from "utils/api";
 
 
 
-function AtividadeLista() {
+function AtividadeLista({atividadeCriada}) {
 
     const [atividades, setAtividades] = useState([]);
+
+    const adicionaAtividadeNaLista = (atividade) => {
+        const lista = [...atividades, atividade];
+        setAtividades(lista);
+    };
+
+    useEffect(() => {
+        if (atividadeCriada) adicionaAtividadeNaLista(atividadeCriada);
+    }, [atividadeCriada]);
 
     const getAtividades = async () => {
         const response = await api.getAllAtividades()
         setAtividades(response)
     }
+
 
     useEffect(() => {
         getAtividades();

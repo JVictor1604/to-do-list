@@ -20,12 +20,16 @@ function ListaAtividadeItem({ atividade, index }) {
                         </div>
 
                         <div className="AtividadeListaItem__data">
-                            {`Marcado para ás ${atividade.hora} de ${atividade.data}`}
+                            {`Marcado para ás ${atividade.hora} horas de ${atividade.data}`}
                         </div>
+
+                        <div className="input">
 
                         <p>
                             <input className="checkbox" type="checkbox" name="colors" value="blue" /><br />
                         </p>
+
+                        </div>
 
 
                     </div>
