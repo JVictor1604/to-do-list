@@ -5,6 +5,6 @@ import './assets/styles/main.css';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Home/>
+    <Home />
   </React.StrictMode>
 );

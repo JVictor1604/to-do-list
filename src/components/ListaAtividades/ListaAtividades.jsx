@@ -23,8 +23,8 @@ function AtividadeLista({ atividadeCriada }) {
     const getAtividadeById = async (atividadeId) => {
         const response = await api.getAtividadeById(atividadeId);
         setAtividadeModal(response);
-      }
-    
+    }
+
 
     const getAtividades = async () => {
         const response = await api.getAllAtividades()
@@ -55,7 +55,7 @@ function AtividadeLista({ atividadeCriada }) {
                 />
             ))}
 
-             {
+            {
                 atividadeModal && (<AtividadesByIdModal
                     closeModal={() => setAtividadeModal(false)}
                     atividades={atividadeModal}

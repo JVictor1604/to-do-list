@@ -40,21 +40,21 @@ function AtividadesFormModal({ closeModal, onCreateAtividade }) {
     )
 
     const createatividade = async () => {
-    
+
         const { titulo, descricao, data, hora } = state;
-    
-    
+
+
         const atividade = {
             titulo,
             descricao,
             data,
             hora
         }
-    
+
         const response = await api.createAtividade(atividade);
 
         onCreateAtividade(response);
-        
+
         closeModal();
 
     }

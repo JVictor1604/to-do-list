@@ -8,35 +8,35 @@ function ListaAtividadeItem({ atividade, index, clickItem }) {
 
     return (<div className="row">
 
-        <div className="AtividadeListaItem" 
+        <div className="AtividadeListaItem"
             key={`AtividadeListaItem-${index}`}
             onClick={() => clickItem(atividade.id)}>
 
 
-                        <div className="AtividadeListaItem__titulo">
-                            {atividade.titulo}
-                        </div>
+            <div className="AtividadeListaItem__titulo">
+                {atividade.titulo}
+            </div>
 
-                        <div className="AtividadeListaItem__descricao">
-                            {atividade.descricao}
-                        </div>
+            <div className="AtividadeListaItem__descricao">
+                {atividade.descricao}
+            </div>
 
-                        <div className="AtividadeListaItem__data">
-                            {`Marcado para ás ${atividade.hora} horas de ${atividade.data}`}
-                        </div>
+            <div className="AtividadeListaItem__data">
+                {`Marcado para ás ${atividade.hora} horas de ${atividade.data}`}
+            </div>
 
-                        <div className="input">
+            <div className="input">
 
-                        <p>
-                            <input className="checkbox" type="checkbox" name="colors" value="blue" /><br />
-                        </p>
+                <p>
+                    <input className="checkbox" type="checkbox" name="colors" value="blue" /><br />
+                </p>
 
-                        </div>
+            </div>
 
 
-                    </div>
-                </div>)
+        </div>
+    </div>)
 }
 
 
-                export default ListaAtividadeItem
+export default ListaAtividadeItem

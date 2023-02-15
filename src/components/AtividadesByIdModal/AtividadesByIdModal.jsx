@@ -15,13 +15,13 @@ function AtividadesByIdModal({ closeModal, atividades }) {
 
                 <div className="AtividadeListaItem__info">
 
-                <div className="AtividadeListaItem__descricao">
-                    {atividades.descricao}
-                </div>
+                    <div className="AtividadeListaItem__descricao">
+                        {atividades.descricao}
+                    </div>
 
-                <div className="AtividadeListaItem__data">
-                    {`Às ${atividades.hora} horas de ${atividades.data}`}
-                </div>
+                    <div className="AtividadeListaItem__data">
+                        {`Às ${atividades.hora} horas de ${atividades.data}`}
+                    </div>
 
                 </div>
 

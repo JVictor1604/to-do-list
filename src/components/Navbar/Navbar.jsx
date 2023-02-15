@@ -27,7 +27,7 @@ function Navbar({ createAtividade }) {
           <img src={botao} width="40px" className="Atividade__icone" alt="Adicionar Atividade" />
         </button>
 
-        
+
 
       </div>
     </div>

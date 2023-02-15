@@ -36,8 +36,8 @@ function Home() {
 
       <div className="Home__container">
 
-        <AtividadeLista  
-        
+        <AtividadeLista
+
         />
         {
           canShowAdicionaAtividadeModal && (<AtividadesFormModal closeModal={() => setCanShowAdicionaAtividadeModal(false)} onCreateAtividade={(atividade) => setAtividadeParaAdicionar(atividade)} />)
