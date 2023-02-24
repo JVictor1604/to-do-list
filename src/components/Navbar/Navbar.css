@@ -1,74 +1,110 @@
 .Header {
-    max-width: 1110px;
-    margin: 0 auto 25px auto;
-    position: relative;
+  max-width: 1110px;
+  margin: 0 auto 25px auto;
+  position: relative;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 20px 0 35px 0;
+}
+
+.Logo {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 250px;
+  height: 45px;
+}
+
+.Logo__titulo {
+  position: absolute;
+  left: 23px;
+  font-family: "Exo";
+  font-weight: 700;
+  font-size: 2.5em;
+}
+
+.Logo__icone {
+  position: absolute;
+  left: -75px;
+  top: -15px;
+}
+
+@media (max-width: 1220px) {
+  .Header {
+    max-width: 720px;
   }
-  
-  .row {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin: 20px 0 35px 0;
+}
+
+@media (max-width: 840px) {
+  .Header {
+    max-width: 320px;
   }
-  
-  .Logo {
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.4);
-    width: 250px;
-    height: 45px;
-  }
-  
-  .Logo__titulo {
-    position: absolute;
-    left: 23px;
-    font-family: "Exo";
-    font-weight: 700;
-    font-size: 2.5em;
-  }
-  
-  .Logo__icone {
-    position: absolute;
-    left: -75px;
-    top: -15px;
-  }
-  
-  @media (max-width: 1220px) {
-    .Header {
-      max-width: 720px;
-    }
-  }
-  
-  @media (max-width: 840px) {
-    .Header {
-      max-width: 320px;
-    }
-  }
-  
-  @media (max-width: 400px) {
-    .Header {
-      max-width: 250px;
-    }
-  
-    .row {
-      column-gap: 20px;
-    }
-  
-    .Logo__titulo {
-      font-size: 1.5em;
-    }
+}
+
+@media (max-width: 400px) {
+  .Header {
+    max-width: 250px;
   }
 
-  .Opcoes {
-    display: flex;
+  .row {
+    column-gap: 20px;
   }
-  
-  .Atividade {
-    background: none;
-    border: none;
+
+  .Logo__titulo {
+    font-size: 1.5em;
   }
-  
-  .Atividade__icone {
-    cursor: pointer;
-  }
+}
+
+.Opcoes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Atividade {
+  background: none;
+  border: none;
+  margin: 1px;
+  transform: translateY(-3px);
+  border-radius: 10px;
+  transition: all .5s;
+  padding: 0;
+}
+
+.Atividade__icone__criar {
+  cursor: pointer;
+  transform: translateY(3px);
+  margin-right: 10px;
+}
+
+.Atividade__icone__editar {
+  cursor: pointer;
+  transform: translateY(3px);
+  margin-left: 10px; 
+}
+
+.Atividade__icone__deletar {
+  cursor: pointer;
+  transform: translateY(3px);
+  margin-left: 10px; 
+}
+
+
+.Atividade__ativa {
+
+  width: 50px;
+  background-color: rgba(65, 207, 162, 0.78)
+}
+
+.Atividade__deletar {
+  background-color: rgba(211, 0, 0);
+}
+
+img {
+
+  margin-right: 7px;
+}

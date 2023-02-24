@@ -1,17 +1,25 @@
 import "./ListaAtividadesItem.css"
+import { ActionMode } from "constants/index";
 
 
+function ListaAtividadeItem({ atividade, index, clickItem, mode }) {
 
-function ListaAtividadeItem({ atividade, index, clickItem }) {
-
-
+    const badgeAction = (canRender) => {
+        if (canRender)
+            return (<span
+                className={`AtividadeListaItem__tag ${mode === ActionMode.DELETAR && 'AtividadeListaItem__tag--deletar'}`}> {mode} </span>);
+    }
 
     return (<div className="row">
 
-        <div className="AtividadeListaItem"
+        <div
+            className={`AtividadeListaItem 
+            ${mode !== ActionMode.NORMAL && 'AtividadeListaItem--disable'}
+            ${mode === ActionMode.DELETAR && 'AtividadeListaItem--deletar'}`}
             key={`AtividadeListaItem-${index}`}
             onClick={() => clickItem(atividade.id)}>
 
+            {badgeAction(mode !== ActionMode.NORMAL)}
 
             <div className="AtividadeListaItem__titulo">
                 {atividade.titulo}

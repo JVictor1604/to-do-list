@@ -3,13 +3,15 @@ import "./AtividadesFormModal.css"
 import Modal from "components/Modal/Modal";
 import { api } from "utils/api";
 
-function AtividadesFormModal({ closeModal, onCreateAtividade }) {
+import { ActionMode } from "constants/index";
+
+function AtividadesFormModal({ closeModal, onCreateatividade, mode, atividadeToUpdate, onUpdateatividade }) {
 
     const form = {
-        titulo: "",
-        descricao: "",
-        data: "",
-        hora: ""
+        titulo: atividadeToUpdate?.titulo ?? "",
+        descricao: atividadeToUpdate?.descricao ?? "",
+        data: atividadeToUpdate?.data ?? "",
+        hora: atividadeToUpdate?.hora ?? ""
     };
 
     const [state, setState] = useState(form);
@@ -25,8 +27,8 @@ function AtividadesFormModal({ closeModal, onCreateAtividade }) {
 
         const response = !Boolean(
             state.titulo.length &&
-            state.hora.length &&
-            state.hora.length
+            String(state.data.length) &&
+            String(state.hora.length)
         )
 
         setCanDisable(response)
@@ -39,21 +41,41 @@ function AtividadesFormModal({ closeModal, onCreateAtividade }) {
         }
     )
 
-    const createatividade = async () => {
+    const handleSend = async () => {
 
         const { titulo, descricao, data, hora } = state;
 
-
         const atividade = {
+            ...(atividadeToUpdate && { _id: atividadeToUpdate?.id }),
             titulo,
             descricao,
             data,
             hora
         }
 
-        const response = await api.createAtividade(atividade);
+        const serviceCall = {
+            [ActionMode.NORMAL]: () => api.create(atividade),
+            [ActionMode.ATUALIZAR]: () => api.updateAtividade(atividadeToUpdate?.id, atividade),
+        }
 
-        onCreateAtividade(response);
+        const response = await serviceCall[mode]();
+
+        const actionResponse = {
+            [ActionMode.NORMAL]: () => onCreateatividade(response),
+            [ActionMode.ATUALIZAR]: () => onUpdateatividade(response),
+        }
+
+        actionResponse[mode]();
+
+        const reset = {
+            preco: '',
+            sabor: '',
+            recheio: '',
+            descricao: '',
+            foto: '',
+        }
+
+        setState(reset);
 
         closeModal();
 
@@ -63,7 +85,7 @@ function AtividadesFormModal({ closeModal, onCreateAtividade }) {
         <Modal closeModal={closeModal}>
             <div className="AdicionaAtividadeModal">
                 <form autoComplete="off">
-                    <h2> Adicionar Atividade </h2>
+                    <h2> {ActionMode.ATUALIZAR === mode ? 'Atualizar' : 'Criar'} Atividade </h2>
                     <div>
                         <label className="AdicionaAtividadeModal__text" htmlFor="titulo"> Título: </label>
                         <input
@@ -107,8 +129,8 @@ function AtividadesFormModal({ closeModal, onCreateAtividade }) {
                     <button className="AdicionaAtividadeModal__enviar"
                         type="submit"
                         disabled={canDisable}
-                        onClick={createatividade}>
-                        Enviar
+                        onClick={handleSend}>
+                        {ActionMode.NORMAL === mode ? 'Enviar' : 'Atualizar'}
                     </button>
                 </form>
             </div>

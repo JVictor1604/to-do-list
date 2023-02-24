@@ -8,6 +8,8 @@
   position: relative;
   display: flex;
   justify-content: space-around;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
 .AtividadeListaItem__titulo {
@@ -17,7 +19,6 @@
   justify-content: center;
   align-items: center;
 }
-
 
 .AtividadeListaItem__descricao {
   width: 47%;
@@ -67,3 +68,52 @@ input[type=checkbox]:checked:after {
 span {
   margin: 0px 15px;
 }
+
+.AtividadeListaItem__tag {
+  background-color: rgba(65, 207, 162, 0.78) !important;
+  color: black !important;
+  position: absolute;
+  font-size: 0.6em;
+  border-radius: 5px;
+  padding: 5px;
+  top: -15px;
+  left: -10px;
+  letter-spacing: 1px;
+}
+
+.AtividadeListaItem__tag--deletar {
+  background-color: red !important;
+  color: rgb(227, 207, 207) !important;
+  position: absolute;
+  font-size: 0.6em;
+  border-radius: 5px;
+  padding: 5px;
+  top: -15px;
+  left: -10px;
+  letter-spacing: 1px;
+}
+
+.AtividadeListaItem--disable {
+  box-shadow: 0px 0px 7px  rgba(65, 207, 162, 0.78);
+}
+
+.AtividadeListaItem--deletar {
+
+  box-shadow: 0px 0px 7px rgba(211, 0, 0);
+
+}
+
+.AtividadeListaItem--disable,
+.AtividadeListaItem--disable .AtividadeListaItem__titulo {
+  color: gray;
+}
+
+.AtividadeListaItem--disable .AtividadeListaItem__badge {
+  display: none;
+}
+
+.AtividadeListaItem--disable button:disabled {
+  background-color: gray;
+}
+
+ 

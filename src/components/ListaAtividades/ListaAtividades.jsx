@@ -1,29 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./ListaAtividades.css";
 import { api } from "utils/api";
 
 import ListaAtividadeItem from "components/ListaAtividadesItem/ListaAtividadesItem";
 import AtividadesByIdModal from "components/AtividadesByIdModal/AtividadesByIdModal";
 
+import { ActionMode } from "constants/index";
 
-
-function AtividadeLista({ atividadeCriada }) {
+function AtividadeLista({ atividadeCriada, mode, updateAtividade, deleteAtividade, atividadeRemovida, atividadeEditada }) {
 
     const [atividades, setAtividades] = useState([]);
 
     const [atividadeModal, setAtividadeModal] = useState(false);
 
 
-    const adicionaAtividadeNaLista = (atividade) => {
+    const adicionaAtividadeNaLista = useCallback(
+        
+        (atividade) => {
         const lista = [...atividades, atividade];
-        setAtividades(lista);
-    };
+        setAtividades(lista);},
+        [atividades]);
 
 
     const getAtividadeById = async (atividadeId) => {
+
         const response = await api.getAtividadeById(atividadeId);
-        setAtividadeModal(response);
+
+        const mapper = {
+            [ActionMode.NORMAL]: () => setAtividadeModal(response),
+            [ActionMode.ATUALIZAR]: () => updateAtividade(response),
+            [ActionMode.DELETAR]: () => deleteAtividade(response),
+        };
+
+        mapper[mode]();
     }
+
+
 
 
     const getAtividades = async () => {
@@ -34,12 +46,17 @@ function AtividadeLista({ atividadeCriada }) {
 
     useEffect(() => {
         getAtividades();
-    }, [])
+    }, [atividadeRemovida, atividadeEditada])
 
     useEffect(() => {
-        if (atividadeCriada) adicionaAtividadeNaLista(atividadeCriada);
-    }, [atividadeCriada]);
-
+        if (
+          atividadeCriada &&
+          !atividades.map(({ id }) => id).includes(atividadeCriada.id)
+        ) {
+          adicionaAtividadeNaLista(atividadeCriada);
+        }
+      }, [adicionaAtividadeNaLista, atividadeCriada, atividades]) 
+    
 
     return (
 
@@ -51,6 +68,7 @@ function AtividadeLista({ atividadeCriada }) {
                     key={`AtividadeListaItem-${index}`}
                     atividade={atividade}
                     clickItem={(atividadeId) => getAtividadeById(atividadeId)}
+                    mode={mode}
 
                 />
             ))}

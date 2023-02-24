@@ -57,6 +57,7 @@
 
 .AtividadeListaItem__data {
   width: 150px;
+  margin-left: 30px;
 }
 
 .AtividadeListaItem__descricao {
