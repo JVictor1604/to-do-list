@@ -54,7 +54,7 @@ function AtividadesFormModal({ closeModal, onCreateatividade, mode, atividadeToU
         }
 
         const serviceCall = {
-            [ActionMode.NORMAL]: () => api.create(atividade),
+            [ActionMode.NORMAL]: () => api.createAtividade(atividade),
             [ActionMode.ATUALIZAR]: () => api.updateAtividade(atividadeToUpdate?.id, atividade),
         }
 
