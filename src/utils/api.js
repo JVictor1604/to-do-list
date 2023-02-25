@@ -12,7 +12,7 @@ export const api = {
     const newAtividade = await response.json();
 
     return newAtividade;
-  },
+  } ,
 
   updateAtividade: async (id, atividade) => {
 
@@ -46,18 +46,17 @@ export const api = {
 
   },
 
-  getAllAtividades: async () => {
-    const response = await fetch(`${baseUrl}/atividades`)
-    const allAtividades = response.json()
-    return allAtividades;
-  },
-
   getAtividadeById: async (id) => {
     const response = await fetch(`${baseUrl}/atividades/${id}`);
     const atividade = response.json();
     return atividade;
+  },
+
+  getAllAtividades: async () => {
+    const response = await fetch(`${baseUrl}/atividades`)
+    const allAtividades = response.json()
+    return allAtividades;
   }
 
-
-
 }
+

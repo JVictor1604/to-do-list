@@ -1,5 +1,5 @@
 import './Home.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { ActionMode } from "constants/index";
 
 
@@ -46,15 +46,21 @@ function Home() {
     setModoAtual(novaAcao);
   }
 
-  const adicionaAtividadeNaLista = (atividade) => {
+  const adicionaAtividadeNaLista = useCallback(
+    (atividade) => {
     const lista = [...atividades, atividade];
     setAtividades(lista);
-  };
+    }, 
+    [atividades]
+  );
+
+  /* useEffect(() => {
+    if (atividadeParaAdicionar) adicionaAtividadeNaLista(atividadeParaAdicionar);
+  }, [atividadeParaAdicionar] ); */
 
   useEffect(() => {
     if (atividadeParaAdicionar) adicionaAtividadeNaLista(atividadeParaAdicionar);
-  }, [atividadeParaAdicionar]);
-
+  }, [adicionaAtividadeNaLista,atividadeParaAdicionar] );
 
   return (
     <div className="Home">

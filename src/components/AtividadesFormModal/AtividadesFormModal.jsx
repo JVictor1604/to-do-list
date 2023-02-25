@@ -3,6 +3,7 @@ import "./AtividadesFormModal.css"
 import Modal from "components/Modal/Modal";
 import { api } from "utils/api";
 
+
 import { ActionMode } from "constants/index";
 
 function AtividadesFormModal({ closeModal, onCreateatividade, mode, atividadeToUpdate, onUpdateatividade }) {

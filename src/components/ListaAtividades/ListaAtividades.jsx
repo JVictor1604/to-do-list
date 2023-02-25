@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import "./ListaAtividades.css";
 import { api } from "utils/api";
 
+
 import ListaAtividadeItem from "components/ListaAtividadesItem/ListaAtividadesItem";
 import AtividadesByIdModal from "components/AtividadesByIdModal/AtividadesByIdModal";
 
